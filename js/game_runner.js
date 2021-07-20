@@ -1,10 +1,13 @@
 function initializeRunner() {
+    const runnerGame = document.getElementById('runnerGame');
+    runnerGame.style.display = 'block';
+    runnerGame.classList.add('appear');
+
     let canvas = document.querySelector("canvas");
-    canvas.style.display = 'block';
-    canvas.classList.add('appear');
     const context = canvas.getContext("2d");
 
     context.canvas.height = 400;
+    console.log(document.getElementById('main').clientWidth);
     context.canvas.width = document.getElementById('main').clientWidth;
 
 // Start the frame count at 1
@@ -70,13 +73,16 @@ function initializeRunner() {
             const key_state = event.type === "keydown";
 
             switch (event.keyCode) {
-
+                case 65:// A
                 case 37:// left key
                     controller.left = key_state;
                     break;
+                case 87:// W
+                case 32:// Space
                 case 38:// up key
                     controller.up = key_state;
                     break;
+                case 68:// D
                 case 39:// right key
                     controller.right = key_state;
                     break;
@@ -178,7 +184,7 @@ function initializeRunner() {
 
         if (lost) {
             context.textAlign = "center";
-            context.fillText("Hahaha You lose. Click to retry ", context.canvas.width/2,context.canvas.height/2);
+            context.fillText("Hahaha You lose. Press any key to retry ", context.canvas.width/2,context.canvas.height/2);
         } else if (won) {
             context.textAlign = "center";
             context.fillText("You won. I hope you are happy now....go play something else ", context.canvas.width/2,context.canvas.height/2);
@@ -192,7 +198,7 @@ function initializeRunner() {
     window.addEventListener("keyup", controller.keyListener);
     window.requestAnimationFrame(loop);
 
-    canvas.addEventListener('click', function() {
+    window.addEventListener('keydown', function() {
         if (lost || won) {
             frameCount = 1
             lost = false;

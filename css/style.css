@@ -22,7 +22,8 @@ html, body, #main {
     height: 100%;
     overflow: hidden;
 }
-canvas {
+#runnerGame {
+    margin: 0 !important;
     transform: translateY(-200%);
 }
 span {

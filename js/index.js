@@ -85,7 +85,10 @@ function smallTalkToBot() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    smallTalkToBot();
+    // smallTalkToBot();
+    setTimeout(() => {
+        initializeRunner();
+    }, 500);
 });
 
 function output(input) {

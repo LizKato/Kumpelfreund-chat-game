@@ -138,6 +138,9 @@ function evaluateScore(playerAction, kiAction) {
         botWriteOn("Draw.");
         botWriteOn(gameReplies[2][getRandomInt(gameReplies[2].length)]);
     }
+    if (playerScore < 2 && kiScore < 2) {
+        botWriteOn('Type in your action for the next round.');
+    }
 }
 
 function getRandomInt(max) {
