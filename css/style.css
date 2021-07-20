@@ -1,0 +1,217 @@
+body {
+    color: rgb(86, 64, 135);
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Courier New";
+    background: black;
+}
+
+body::after {
+    content: "";
+    background-repeat: repeat-y;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+html, body, #main {
+    height: 100%;
+    overflow: hidden;
+}
+canvas {
+    transform: translateY(-200%);
+}
+span {
+    color: rgb(255, 255, 255);
+}
+
+::-webkit-input-placeholder {
+    color: rgb(0, 0, 0)
+}
+
+#main {
+    position: fixed;
+    right: 10%;
+    left: 10%;
+    padding: 40px;
+}
+
+#main div {
+    margin: 10px;
+}
+
+#input, #inputGame {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid white;
+    background: black;
+    color: white;
+}
+
+#inputGame {
+    display: none;
+}
+
+#chatbox {
+    width: 100%;
+    height: 85%;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+#chatbox::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#chatbox {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+#chatbox div {
+    margin-top: auto;
+}
+
+.removed {
+    -webkit-animation: disappear 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation: disappear 1s;
+    animation-fill-mode: forwards;
+}
+
+.appear {
+    -webkit-animation: appear 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation: appear 1s;
+    animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes disappear {
+
+    50% {
+
+        -webkit-transform: translateX(-5%);
+        transform: translateX(-5%);
+    }
+
+    100% {
+        -webkit-transform: translateX(200%);
+        transform: translateX(200%);
+    }
+}
+
+@keyframes disappear {
+
+    50% {
+        -webkit-transform: translateX(-5%);
+        transform: translateX(-5%);
+    }
+
+    100% {
+        -webkit-transform: translateX(200%);
+        transform: translateX(200%);
+    }
+}
+@-webkit-keyframes appear {
+    50% {
+
+        -webkit-transform: translateY(-200%);
+        transform: translateY(-200%);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@keyframes appear {
+    50% {
+
+        -webkit-transform: translateY(-200%);
+        transform: translateY(-200%);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+
+/* Rock Paper Scissors */
+.rps-actions {
+    display: flex;
+    justify-content: start;
+}
+
+.ki-rps-action {
+    transform: scaleX(-1);
+}
+
+/* Connect 4 */
+#chatbox div.connect-four {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.board-cell {
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+}
+
+.board-cell > .checker {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    margin: 0 auto;
+    background: black;
+}
+
+.board-row:first-child > .board-cell-unset:hover {
+    cursor: pointer;
+}
+
+.board-row:first-child > .board-cell-set:hover {
+    cursor: not-allowed;
+}
+
+.board-row:first-child > .board-cell-unset:hover > .checker {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.player-won {
+    background: white;
+}
+
+.ki-won {
+    background: white;
+}
+
+.board-cell > .player-checker {
+    background: white;
+}
+
+.board-cell > .ki-checker {
+    border: 2px solid white;
+}
+
+#chatbox div.board-row, #chatbox div.board-row .board-cell {
+    margin: 0;
+}
+
+
