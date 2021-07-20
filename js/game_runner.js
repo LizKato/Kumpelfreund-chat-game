@@ -10,12 +10,9 @@ function initializeRunner() {
     console.log(document.getElementById('main').clientWidth);
     context.canvas.width = document.getElementById('main').clientWidth;
 
-// Start the frame count at 1
+    // Start the frame count at 1
     let frameCount = 1;
-// Set the number of obstacles to match the current "level"
-    let obCount = frameCount;
-// Create a collection to hold the generated x coordinates
-    let obXCoors = [];
+    let levelUpInterval;
 
     let lost = false;
     let won = false;
@@ -47,20 +44,11 @@ function initializeRunner() {
 
 
 // Create the obstacles for each frame
-    const nextFrame = () => {
+    const levelUp = () => {
         // increase the frame / "level" count
         frameCount++;
-        if (frameCount === 10) {
-            won = true;
-            playWinSound();
-        }
-
-        for (let i = 0; i < obCount; i++) {
-            // Randomly generate the x coordinate for the top corner start of the triangles
-            obXCoor = Math.floor(Math.random() * (context.canvas.width - 240 + 1) + 140);
-            obXCoors.push(obXCoor);
-        }
-
+        objectSpeed++;
+        objectSkipSpeed = objectSkipSpeed + 0.5;
     }
 
     const controller = {
@@ -91,8 +79,30 @@ function initializeRunner() {
         }
     };
 
+    let objects = [];
+    let objectSkip = 0;
+    let currentSkip = 1;
+    let objectSpeed = 5;
+    let objectSkipSpeed = 1;
+    let destroyX = context.canvas.width;
+
     const loop = function () {
-        if (lost || won) {
+        if (lost) {
+            clearInterval(levelUpInterval);
+            context.strokeStyle = "black";
+            context.lineWidth = 20;
+            context.beginPath();
+            context.moveTo(destroyX, context.canvas.height);
+            context.lineTo(destroyX, 0);
+            context.stroke();
+
+            if (destroyX > 0) {
+                destroyX = destroyX - 8;
+                window.requestAnimationFrame(loop);
+            } else {
+                document.getElementById('runner-explaination').classList.add('removed');
+                document.getElementById('end-screen').classList.add('ease-in');
+            }
             return
         }
         if (controller.up && !playerProperties.jumping) {
@@ -129,8 +139,7 @@ function initializeRunner() {
         if (playerProperties.x < -20) {
             playerProperties.x = 20;
         } else if (playerProperties.x > context.canvas.width - 40) {// if playerProperties goes past right boundary
-            playerProperties.x = -20;
-            nextFrame();
+            playerProperties.x = context.canvas.width - 50;
         }
 
         // Creates the backdrop for each frame
@@ -142,16 +151,18 @@ function initializeRunner() {
         const height = 200 * Math.cos(Math.PI / 6);
 
         context.fillStyle = "white"; // hex for triangle color
-        obXCoors.forEach((obXCoor) => {
+
+        for (let i = 0; i < objects.length; i++) {
+            const obj = objects[i];
             context.beginPath();
 
-            context.moveTo(obXCoor, 385); // x = random, y = coor. on "ground"
-            context.lineTo(obXCoor + 20, 385); // x = ^random + 20, y = coor. on "ground"
-            context.lineTo(obXCoor + 10, 500 - height); // x = ^random + 10, y = peak of triangle
+            context.moveTo(obj.x, 385); // x = random, y = coor. on "ground"
+            context.lineTo(obj.x + 20, 385); // x = ^random + 20, y = coor. on "ground"
+            context.lineTo(obj.x + 10, 500 - height); // x = ^random + 10, y = peak of triangle
 
             context.closePath();
             context.fill();
-            let collision = Math.abs((obXCoor-12) - playerProperties.x);
+            let collision = Math.abs((obj.x - 12) - playerProperties.x);
             if (collision < 10 && playerProperties.y > 300) {
                 if (playerProperties.currentPlayerImg === player) {
                     playerProperties.currentPlayerImg = playerFall;
@@ -161,7 +172,17 @@ function initializeRunner() {
                 lost = true;
                 playLoseSound();
             }
-        })
+
+            obj.x = obj.x - objectSpeed;
+        }
+        objects = objects.filter(obj => obj.x > 0);
+
+        objectSkip = objectSkip + objectSkipSpeed;
+        if (objectSkip >= currentSkip) {
+            objects.push({x: context.canvas.width});
+            objectSkip = 0;
+            currentSkip = getRandomIntInclusive(100, 200);
+        }
 
         // Creates and fills the cube for each frame
         context.drawImage(playerProperties.currentPlayerImg, playerProperties.x, playerProperties.y, playerProperties.width, playerProperties.height);
@@ -180,15 +201,7 @@ function initializeRunner() {
         context.font = "30px Courier New";
         context.fillStyle = "white";
         context.textAlign = "left";
-        context.fillText("Level " + frameCount, 10,35);
-
-        if (lost) {
-            context.textAlign = "center";
-            context.fillText("Hahaha You lose. Press any key to retry ", context.canvas.width/2,context.canvas.height/2);
-        } else if (won) {
-            context.textAlign = "center";
-            context.fillText("You won. I hope you are happy now....go play something else ", context.canvas.width/2,context.canvas.height/2);
-        }
+        context.fillText("Level " + frameCount, 10, 35);
 
         // call update when the browser is ready to draw again
         window.requestAnimationFrame(loop);
@@ -198,25 +211,11 @@ function initializeRunner() {
     window.addEventListener("keyup", controller.keyListener);
     window.requestAnimationFrame(loop);
 
-    window.addEventListener('keydown', function() {
-        if (lost || won) {
-            frameCount = 1
-            lost = false;
-            won = false;
-            obXCoors = [];
-            obCount = frameCount;
-            window.requestAnimationFrame(loop);
-            playerProperties = {
-                height: 50,
-                jumping: true,
-                width: 50,
-                x: 0,
-                xVelocity: 0,
-                y: 8,
-                yVelocity: 0,
-                currentPlayerImg: player,
-                jumpSound: new Audio('sounds/quack.wav')
-            };
-        }
-    }, false);
+    levelUpInterval = setInterval(levelUp, 5000);
+}
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

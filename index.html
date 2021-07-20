@@ -11,15 +11,21 @@
 <body>
     
 <div id="main">
+    <div id="end-screen">
+        <h1>Error</h1>
+        <h2>please close the page (and leave me alone)</h2>
+    </div>
     <div id="runnerGame" style="display: none">
         <canvas ></canvas>
-        <p style="color: white">
-            <br /> Run to the right site to reach the next level. Avoid all objects.
-            <br />
-            <br /> <strong>Controls:</strong>
-            <br /> UP/W/Space to jump
-            <br /> LEFT/A & RIGHT/D to move forward or backward
-        </p>
+        <div id="runner-explaination">
+            <p  style="color: white">
+                <br /> Avoid all objects.
+                <br />
+                <br /> <strong>Controls:</strong>
+                <br /> UP/W/Space to jump
+                <br /> LEFT/A & RIGHT/D to move forward or backward
+            </p>
+        </div>
     </div>
     <div id="chatbox"></div>
     <div><input id="input" type="text" placeholder="Say something..." autocomplete="off"/></div>
