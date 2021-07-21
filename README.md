@@ -70,13 +70,13 @@ smalltalk am anfang möglich:
 // "thanks", "thank you"
 // "bye", "good bye", "goodbye"
 
-"game" 
+// "game" 
 startet das erste spiel
 
 spielfunktionen trigger:
-"paper"
-"scissors"
-"rock"
+// "paper"
+// "scissors"
+// "rock"
 
 // >vier gewinnt< 
 mausklick an die reihe, wo der stein gesetzt werden möchte
