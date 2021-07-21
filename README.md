@@ -1,56 +1,89 @@
 # hsma-html-game
-Spieltitel: >Kumpelfreund Chat<
+spieltitel: >kumpelfreund chat<
 
-Konzept
-Da ich eine Passion für Indie Games und Pixelart, sowie 
-Retro Games habe, musste es ein monocromes Textbasiertes Game geben. 
-Die vollendete Idee kam durch das Spiel >Buddy Simulator 1984<.
-Es sollte also ein Chatbot sein, mit dem man interagieren kann. 
+konzept
+da ich eine passion für indie games und pixelart, sowie 
+retro games habe, musste es ein monocromes, textbasiertes game geben. 
+die vollendete idee kam durch das spiel >Buddy Simulator 1984<.
+es sollte also ein chatbot sein, mit dem man interagieren kann. 
 
-Dafür hat mir sehr das Tutorial geholfen:
+dafür hat mir sehr das tutorial geholfen:
 https://dev.to/sylviapap/make-a-simple-chatbot-with-javascript-1gc
 
-Da die Zeit doch echt schnell voranschritt, entwickelte sich die 
-Idee zu einem art Kampf gegen den Chatbot, indem man nach der Reihe 
-durch drei Spiele spielen muss. Wenn man gewinnt, wird der Bot 
-sauer. Verliert man, drückt er seinen Triumpf aus. Die drei kleinen
-Spiele innerhalb des gesamten Spiels, sind recht einfach ausgefallen.
+da die zeit doch echt schnell voranschritt, entwickelte sich die 
+idee zu einem art kampf gegen den chatbot, indem man nach der reihe 
+durch drei spiele spielen muss. wenn man gewinnt, wird der bot 
+sauer. verliert man, drückt er seinen triumpf aus. die drei kleinen
+spiele innerhalb des gesamten spiels, sind recht einfach ausgefallen.
 
-1_Das erste Spiel ist Schere, Stein, Papier. Simpler Randomizer, wie im Kurs gezeigt.
-Die Gifs sind auch selbst erstellt, keine Assets.
+1_das erste spiel ist >schere, stein, papier<. 
+ein simpler randomizer, wie im kurs gezeigt.
+die gifs sind auch selbst erstellt, keine assets.
 
-2_Das zweite Spiel ist Vier Gewinnt. 
-Es hat einige Schwächen, denn auch hier ist es doch 
-nur Zufall, wo der Bot den Stein platziert. 
-Ist mir zu diesem Zeitpunkt der Entwicklung doch zu viel Zeit, da ich lieber
-ein Gesamtes Game möchte und nicht das Risiko eingehen will, etwas rausstreichen zu müssen.
+2_das zweite spiel ist >vier gewinnt<. 
+es hat einige schwächen, denn auch hier ist es doch 
+nur zufall, wo der bot den stein platziert. 
+ist mir zu diesem zeitpunkt der entwicklung doch zu viel zeit, da ich lieber
+ein gesamtes game möchte und nicht das risiko eingehen will, etwas raus streichen zu müssen.
 
-Um JS besser zu verstehen hat mir der Kurs geholfen:
+um programmieren allgemein besser zu verstehen hat mir der kurs geholfen:
 https://stanford.edu/~cpiech/karel/learn.html
 
-3_Zum letzten Spiel ist die Inspo natürlich das 
-Google Game >Jumping Dino< gemischt mit >Goose Game<
-Die Ente ist auch selbst gemacht. 
-Hinweis: bei diesen Spiel kamen keine echten Enten zu schaden. 
+3_zum letzten spiel ist die inspo natürlich das 
+google game >jumping dino< gemischt mit >goose game<
+die ente ist auch selbst gemacht. 
+hinweis: bei diesen spiel kamen keine echten enten zu schaden. 
 
-Für den Side Scroller hat mit das Tutorial geholfen:
+für den side scroller hat mit das tutorial geholfen:
 https://levelup.gitconnected.com/creating-a-simple-2d-game-with-html5-javascript-889aa06035ef
 
-Der Plot ist, dass man das Game nicht Gewinnen kann. Denn der Bot 
-ist so wütend, dass er das Spiel zum >Absturz< bringt und der 
-Browser geschlossen werden bzw. das Spiel neu geladen werden muss. 
+der plot ist, dass man das game nicht gewinnen kann, denn der bot 
+ist so wütend, dass er das spiel zum >absturz< bringt und der 
+browser geschlossen bzw. das spiel neu geladen werden muss. 
 
 
-Fazit
-Im ganzen, hat das Spiel größere Ausmaße angenommen als gedacht, es hat immens Zeit gekostet
-bin mir über Optimierungen bewusst, aber für den Start in die Welt des JS bin ich sehr Zufrieden :)
+fazit
+im ganzen, hat das spiel größere ausmaße angenommen als gedacht, es hat immens zeit gekostet
+bin mir über optimierungen bewusst, aber für den start in die welt des JS bin ich sehr zufrieden :)
 
-Bei allen Problemen und JS-Knowledge, die nicht direkt im 
-Kurs HTML gezeigt wurden hatte ich auch Unterstützungen von meinem Partner Dennis.
+bei allen problemen und JS-knowledge, die nicht direkt im 
+kurs HTML gezeigt wurden hatte ich auch unterstützungen von meinem partner dennis.
 
-Sound Referenzen:
+sound referenzen:
 freesound.org
 
-Entensound: Alisa *Quack*
+entensound: alisa *quack*
 
-*Quack* Ende.
+
+funktionen:
+in den chat schreiben:
+
+smalltalk am anfang möglich:
+(aus dem tutorial übernmommen)
+
+"hi", "hey", "hello"
+"how are you", "how are things"
+"what is going on", "what is up"
+"happy", "good", "well", "fantastic", "cool"
+"bad", "bored", "tired", "sad"
+"tell me story", "tell me joke"
+"thanks", "thank you"
+"bye", "good bye", "goodbye"
+
+"game" 
+startet das erste spiel
+
+spielfunktionen trigger:
+"paper"
+"scissors"
+"rock"
+
+>vier gewinnt< 
+mausklick an die reihe, wo der stein gesetzt werden möchte
+
+>side scroller<
+pfeiltasten zum steuern
+leertaste zum springen
+
+
+*quack* ende.
