@@ -1,4 +1,4 @@
-# hsma-html-game
+# kumpelfreund chat game
 spieltitel: >kumpelfreund chat<
 
 konzept
