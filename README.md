@@ -56,6 +56,8 @@ entensound: alisa *quack*
 
 
 funktionen:
+alles ist responsive 
+
 in den chat schreiben:
 
 smalltalk am anfang möglich:
