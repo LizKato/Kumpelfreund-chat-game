@@ -61,7 +61,7 @@ in den chat schreiben:
 smalltalk am anfang möglich:
 (aus dem tutorial übernmommen)
 
-// "hi", "hey", "hello"
+// "hi", "hey", "hello" 
 // "how are you", "how are things"
 // "what is going on", "what is up"
 // "happy", "good", "well", "fantastic", "cool"
@@ -74,9 +74,9 @@ smalltalk am anfang möglich:
 startet das erste spiel
 
 spielfunktionen trigger:
-// "paper"
-// "scissors"
-// "rock"
+"paper"
+"scissors"
+"rock"
 
 // >vier gewinnt< 
 mausklick an die reihe, wo der stein gesetzt werden möchte
