@@ -4,7 +4,8 @@ https://lizkato.github.io/Kumpelfreund-chat-game/
 
 spieltitel: >kumpelfreund chat<
 
-konzept [/br]
+konzept 
+
 da ich eine passion für indie games und pixelart, sowie 
 retro games habe, musste es ein monocromes, textbasiertes game geben. 
 die vollendete idee kam durch das spiel >Buddy Simulator 1984<.
@@ -46,6 +47,7 @@ browser geschlossen bzw. das spiel neu geladen werden muss.
 
 
 fazit
+
 im ganzen, hat das spiel größere ausmaße angenommen als gedacht, es hat immens zeit gekostet
 bin mir über optimierungen bewusst, aber für den start in die welt des JS bin ich sehr zufrieden :)
 
