@@ -78,10 +78,10 @@ spielfunktionen trigger:
 "scissors"
 "rock"
 
->vier gewinnt< 
+// >vier gewinnt< 
 mausklick an die reihe, wo der stein gesetzt werden möchte
 
->side scroller<
+// >side scroller<
 pfeiltasten zum steuern
 leertaste zum springen
 
