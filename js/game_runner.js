@@ -84,25 +84,14 @@ function initializeRunner() {
     let currentSkip = 1;
     let objectSpeed = 5;
     let objectSkipSpeed = 1;
-    let destroyX = context.canvas.width;
 
     const loop = function () {
         if (lost) {
             clearInterval(levelUpInterval);
-            context.strokeStyle = "black";
-            context.lineWidth = 20;
-            context.beginPath();
-            context.moveTo(destroyX, context.canvas.height);
-            context.lineTo(destroyX, 0);
-            context.stroke();
 
-            if (destroyX > 0) {
-                destroyX = destroyX - 8;
-                window.requestAnimationFrame(loop);
-            } else {
-                document.getElementById('runner-explaination').classList.add('removed');
-                document.getElementById('end-screen').classList.add('ease-in');
-            }
+            canvas.remove();
+            document.getElementById('runner-explaination').remove();
+            document.getElementById('end-screen').style.display = 'block';
             return
         }
         if (controller.up && !playerProperties.jumping) {

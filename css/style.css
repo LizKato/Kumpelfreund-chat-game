@@ -77,24 +77,52 @@ span {
 #chatbox div {
     margin-top: auto;
 }
-#end-screen {
-    display: none;
-    opacity: 0;
+#end-screen, #start-screen {
     width: 100%;
     height: 100%;
 }
-#end-screen h1{
-    color: white;
-    font-size: 15rem;
-    margin: 0 auto;
-    text-align: center;
+
+#end-screen {
+    display: none;
 }
+
+#start-screen h1 {
+    color: white;
+    font-size: 5rem;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#end-screen h1 {
+    color: white;
+    font-size: 5rem;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#start-screen h2 {
+    cursor: pointer;
+    width: 200px;
+    color: white;
+    font-size: 2rem;
+    margin: 200px 0;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+
 #end-screen h2 {
     color: white;
     font-size: 2rem;
-    margin: 0 auto;
-    text-align: center;
+    margin: 50px auto;
+    text-align: left;
 }
+
+#end-screen h2 span{
+    font-size: 1rem;
+}
+
 
 .removed {
     -webkit-animation: disappear 1s;
@@ -110,7 +138,7 @@ span {
     animation-fill-mode: forwards;
 }
 
-#end-screen.ease-in {
+#start-screen.ease-in {
     display: block;
     -webkit-animation: ease-in-an 1s;
     -webkit-animation-fill-mode: forwards;

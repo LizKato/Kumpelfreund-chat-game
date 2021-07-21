@@ -70,6 +70,7 @@ function playLoseSound() {
 }
 
 function smallTalkToBot() {
+    document.getElementById('start-screen').style.display = 'none';
     botWriteOn("Hi and welcome to my little chatroom. We can chat and if you really want to lose we can play some games together. Just type in game if you want to.")
     interval = idleNotification()
     const inputField = document.getElementById("input")
@@ -83,10 +84,6 @@ function smallTalkToBot() {
         }
     });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-   smallTalkToBot();
-});
 
 function output(input) {
     let botAnswer;
