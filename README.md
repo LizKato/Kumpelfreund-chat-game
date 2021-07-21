@@ -1,4 +1,7 @@
 # kumpelfreund chat game
+
+https://lizkato.github.io/Kumpelfreund-chat-game/
+
 spieltitel: >kumpelfreund chat<
 
 konzept
